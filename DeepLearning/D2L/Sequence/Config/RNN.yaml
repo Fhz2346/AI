@@ -1,0 +1,21 @@
+train:
+  lr: 1
+  num_epochs: 500
+  save_freq: 100
+  
+  data:
+    num_steps: 35
+    batch_size: 32
+    data_iter : sequential # random, sequential
+    
+
+network:
+  type: OriginRNN # OriginRNN, GRU, LSTM
+  dH : 256 
+  # 512 for SimpleRNN
+  # 256 for GRU, LSTM
+
+evaluate:
+  load_epoch: 500
+  prefix: "time traveller"
+  num_preds: 50

@@ -1,0 +1,13 @@
+training:
+  lr : 0.5
+  num_epochs : 10
+  batch_size : 256
+
+network:
+  dI : 784  # 784 = 28*28
+  dO : 10
+  dH : 256
+  dp1 : 0.2
+  dp2 : 0.5
+
+  

@@ -1,0 +1,20 @@
+data:
+  root: E:/Dataset/pokemon
+  batch_size: 256
+  num_workers: 4
+  image_size: 64
+
+model:
+  n_G: 64
+  n_D: 64
+  latent_dim: 100
+
+train:
+  num_epochs: 20
+  lr: 0.005
+  betas: [0.5, 0.999]
+  ckpt_every: 5
+
+visualize:
+  n_row: 3
+  n_col: 7

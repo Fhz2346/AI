@@ -1,0 +1,11 @@
+training:
+  num_epochs: 10
+  batch_size: 128
+  lr: 0.05
+  resize: 224
+
+network:
+  type: VGG
+
+  conv_arch : [[1,64], [1,128], [2,256], [2,512], [2,512]]
+  

@@ -1,0 +1,17 @@
+dataset:
+  name: MNIST
+  root: E:\Dataset
+
+dataloader:
+  batch_size: 128
+
+network:
+  name: VAE
+  latent_dim: 2
+
+optimizer:
+  name: Adam
+  lr: 1e-3
+
+train:
+  epochs: 30

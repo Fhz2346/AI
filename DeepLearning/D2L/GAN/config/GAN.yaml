@@ -1,0 +1,19 @@
+data:
+  type: generated
+  num_samples: 1000
+  dim_feature: 2
+  A: [[1, 2], [-0.1, 0.5]]
+  b: [1, 2]
+
+data_loader:
+  batch_size: 8
+
+train:
+  lr_D: 0.05
+  lr_G: 0.005
+  latent_dim: 2
+  num_epochs: 20
+  ckpt_every: 5
+
+visualize:
+  n_samples: 100

@@ -1,0 +1,13 @@
+training:
+  num_epochs: 10
+  batch_size: 128
+  lr: 0.05
+  resize: 224
+
+network:
+  type: DenseNet
+
+  chn : 64
+  growth_rate : 32
+  n_conv_in_dense_blocks : [4, 4, 4, 4]
+  

@@ -1,0 +1,3 @@
+dataset : timemachine
+max_tokens : 10000
+min_freq : 0

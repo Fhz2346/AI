@@ -1,0 +1,14 @@
+data:
+  num_inputs : 200
+
+  w_scale : 0.01
+  b : 0.05
+
+  n_train : 20
+  n_test : 100
+
+training:
+  lr : 0.003
+  num_epochs : 100
+  batch_size : 5
+  

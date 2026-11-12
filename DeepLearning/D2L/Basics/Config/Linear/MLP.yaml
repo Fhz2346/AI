@@ -1,0 +1,11 @@
+training:
+  lr : 0.1
+  num_epochs : 10
+  batch_size : 256
+
+network:
+  type: MLP
+  dI : 784  # 784 = 28*28
+  dO : 10
+  dH : 256
+  

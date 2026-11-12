@@ -1,0 +1,20 @@
+dataset:
+  name: MNIST
+  root: E:\Dataset
+
+dataloader:
+  batch_size: 100
+
+network:
+  name: CVAE
+  original_dim: 784
+  intermediate_dim: 256
+  latent_dim: 2
+  num_classes: 10
+
+optimizer:
+  name: RMSprop
+  lr: 1e-3
+
+train:
+  epochs: 100

@@ -1,0 +1,10 @@
+train:
+  lr: 0.1
+  num_epochs: 10
+  batch_size: 256
+  loss: CE
+
+network:
+  type: MLP
+  activation: Tanh # ReLU, Sigmoid, Tanh
+  dims: [784, 256, 10]

@@ -1,0 +1,37 @@
+import torch
+from torch import nn
+import hydra
+from omegaconf import DictConfig
+
+from Data.Dataset.FashionMnist import load_data_fashion_mnist
+from Train.CPU import train
+from Network.Module.Dropout import Dropout
+from Network.Utils.Initialize import init_weights
+from Config import cfgG
+
+
+@hydra.main(config_path=f"{cfgG.wsf}/Config/Special", config_name="Dropout")
+def main(cfg: DictConfig):
+    train_iter, test_iter = load_data_fashion_mnist(cfg.training.batch_size)
+    
+    dI, dH, dO = cfg.network.dI, cfg.network.dH, cfg.network.dO
+    dp1, dp2 = cfg.network.dp1, cfg.network.dp2
+    net = nn.Sequential(
+        nn.Flatten(),
+        nn.Linear(dI, dH),
+        nn.ReLU(),
+        Dropout(dp1),
+        nn.Linear(dH, dH),
+        nn.ReLU(),
+        Dropout(dp2),
+        nn.Linear(dH, dO),
+    )
+    net.apply(init_weights)
+
+    loss = nn.CrossEntropyLoss(reduction="none")
+    updater = torch.optim.SGD(net.parameters(), lr=cfg.training.lr)
+    train(net, train_iter, test_iter, loss, cfg.training.num_epochs, updater)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,11 @@
+
+
+training:
+  num_epochs: 10
+  batch_size: 128
+  lr: 0.01
+  resize: 224
+
+network:
+  type: AlexNet
+  
