@@ -1,0 +1,6 @@
+env:
+  size: 8x8 # 5x5, 6x6, 8x8
+  type: direct # normal, direct, shortcut
+
+LC:
+  policy: UCS # DFS | BFS | UCS | A*

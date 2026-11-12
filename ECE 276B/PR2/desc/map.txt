@@ -1,0 +1,5 @@
+boundary = [[xmin, ymin, zmin, xmax, ymax, zmax, r, g, b]]
+blocks = 
+    [[xmin, ymin, zmin, xmax, ymax, zmax,r ,g ,b],
+     ...,
+     [xmin, ymin, zmin, xmax, ymax, zmax,r ,g ,b]]

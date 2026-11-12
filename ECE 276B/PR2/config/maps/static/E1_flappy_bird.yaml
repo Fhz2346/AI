@@ -1,0 +1,4 @@
+mapfile: E1_flappy_bird
+start: [0.5, 2.5, 5.5]
+goal: [19.0, 2.5, 5.5]
+dynamic_target: false

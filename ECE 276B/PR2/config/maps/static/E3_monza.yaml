@@ -1,0 +1,4 @@
+mapfile: E3_monza
+start: [0.5, 1.0, 4.9]
+goal: [3.8, 1.0, 0.1]
+dynamic_target: false

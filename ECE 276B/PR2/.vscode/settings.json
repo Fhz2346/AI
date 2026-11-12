@@ -1,0 +1,23 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "python.analysis.extraPaths": ["${workspaceFolder}/src"],
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "explorer.autoReveal": false,
+    
+    "terminal.integrated.cwd": "${workspaceFolder}",
+
+    "terminal.integrated.env.windows": {
+      "PYTHONPATH": "${workspaceFolder}\\src"
+    },
+    "terminal.integrated.env.linux": {
+      "PYTHONPATH": "${workspaceFolder}/src"
+    },
+    "terminal.integrated.env.osx": {
+      "PYTHONPATH": "${workspaceFolder}/src"
+    },
+  
+    "python.terminal.executeInFileDir": false
+}

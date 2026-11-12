@@ -1,0 +1,10 @@
+mapfile: E5_tower
+start:
+- 2.5
+- 4.0
+- 0.5
+goal:
+- 4.0
+- 2.5
+- 19.5
+dynamic_target: false

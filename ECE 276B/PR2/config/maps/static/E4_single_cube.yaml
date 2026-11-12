@@ -1,0 +1,4 @@
+mapfile: E4_single_cube
+start: [2.3, 2.3, 1.3]
+goal: [7.0, 7.0, 5.5]
+dynamic_target: false

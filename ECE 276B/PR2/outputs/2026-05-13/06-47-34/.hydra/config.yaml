@@ -1,0 +1,10 @@
+mapfile: E2_maze
+start:
+- 0.0
+- 0.0
+- 1.0
+goal:
+- 12.0
+- 12.0
+- 5.0
+dynamic_target: false
