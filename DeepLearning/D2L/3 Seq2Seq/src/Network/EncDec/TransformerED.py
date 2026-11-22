@@ -13,7 +13,7 @@ class TransformerED(EncoderDecoder):
         self.dense = nn.Linear(cfg.dH, tgt_vs)
 
     def forward(self, src, src_vl, tgt_with_bos):
-        encO = self.encoder(src, src_vl)                # (bs, seq_len, dH)
-        decO = self.decoder(tgt_with_bos, encO, src_vl) # (bs, seq_len, dH)
-        tgt_hat = self.dense(decO)                      # (bs, seq_len, tgt_vs)
+        encO = self.encoder(src, src_vl)                # (bs, num_steps, dH)
+        decO = self.decoder(tgt_with_bos, encO, src_vl) # (bs, num_steps, dH)
+        tgt_hat = self.dense(decO)                      # (bs, num_steps, tgt_vs)
         return tgt_hat

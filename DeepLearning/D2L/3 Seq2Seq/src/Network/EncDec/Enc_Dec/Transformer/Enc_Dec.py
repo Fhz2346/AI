@@ -38,7 +38,7 @@ class TransformerEncoder(nn.Module):
         X = self.pos_encoding(self.embedding(X) * math.sqrt(self.dH))
         for blk in self.blks:
             X = blk(X, src_vl)
-        return X # (bs, seq_len, dH)
+        return X # (bs, num_steps, dH)
 
 
 class DecoderBlock(nn.Module):
@@ -54,9 +54,9 @@ class DecoderBlock(nn.Module):
         self.addnorm3 = AddNorm(cfg.AddNorm.norm_shape, cfg.dropout)
 
     def forward(self, X, encO, src_vl, dec_vl):
-        X = self.addnorm1(X, self.attention1((X, X, X), dec_vl))       # (bs, seq_len, dH)
-        X = self.addnorm2(X, self.attention2((X, encO, encO), src_vl)) # (bs, seq_len, dH)
-        X = self.addnorm3(X, self.ffn(X))                              # (bs, seq_len, dH)
+        X = self.addnorm1(X, self.attention1((X, X, X), dec_vl))       # (bs, num_steps, dH)
+        X = self.addnorm2(X, self.attention2((X, encO, encO), src_vl)) # (bs, num_steps, dH)
+        X = self.addnorm3(X, self.ffn(X))                              # (bs, num_steps, dH)
         return X
 
 
@@ -76,16 +76,16 @@ class TransformerDecoder(nn.Module):
     def forward(self, X, encO, src_vl):
 
         def get_dec_vl(X):
-            bs, seq_len = X.shape[0:2]
-            dec_vl = torch.arange(1, seq_len + 1, device=X.device) # (seq_len,)
-            dec_vl = dec_vl.repeat(bs, 1) # (bs, seq_len)
+            bs, num_steps = X.shape[0:2]
+            dec_vl = torch.arange(1, num_steps + 1, device=X.device) # (num_steps,)
+            dec_vl = dec_vl.repeat(bs, 1) # (bs, num_steps)
             return dec_vl 
 
         if self.training:
             dec_vl = get_dec_vl(X)
         else:
             dec_vl = None
-        X = self.pos_encoding(self.embedding(X) * math.sqrt(self.dH)) # (bs, seq_len, dH)
+        X = self.pos_encoding(self.embedding(X) * math.sqrt(self.dH)) # (bs, num_steps, dH)
         for blk in self.blks:
-            X = blk(X, encO, src_vl, dec_vl) # (bs, seq_len, dH)
+            X = blk(X, encO, src_vl, dec_vl) # (bs, num_steps, dH)
         return X

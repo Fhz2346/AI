@@ -26,18 +26,12 @@ class TrainPipeline:
 
     def train_epoch(self, train_iter):
         for batch in train_iter:
-            src, src_vl, tgt, tgt_vl = [x.to(self.device) for x in batch]
-            # src:    (batch_size, num_steps)
-            # src_vl: (batch_size)
-            # tgt:    (batch_size, num_steps)
-            # tgt_vl: (batch_size)
+            src, src_vl, tgt, tgt_vl = [x.to(self.device) for x in batch] # (batch_size, num_steps), (batch_size)
             batch_size = src.shape[0]
             bos = self.tgt_vocab["<bos>"]
             bos = torch.tensor([bos] * batch_size, device=self.device).reshape(-1, 1)
-            tgt_with_bos = torch.cat([bos, tgt[:, :-1]], dim=1)
-            # (batch_size, num_steps)
-            tgt_hat = self.net(src, src_vl, tgt_with_bos)
-            # (batch_size, num_steps, tgt_vs)
+            tgt_with_bos = torch.cat([bos, tgt[:, :-1]], dim=1) # (batch_size, num_steps)
+            tgt_hat = self.net(src, src_vl, tgt_with_bos) # (batch_size, num_steps, tgt_vs)
             self.optimizer.zero_grad()
             l = self.loss(tgt_hat, tgt, tgt_vl)
             l.sum().backward()
