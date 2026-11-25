@@ -1,0 +1,7 @@
+wall clock per step :    90.07 ms   (p5 86.44, p95 96.26)
+profiled self time  :    29.25 ms (device)
+unaccounted         :    60.82 ms (68%)
+
+FLOPs per step      :    214.0 GFLOP
+achieved (wall)     :     2.38 TFLOP/s   = 8.2% of bf16 roof 28.88
+achieved (kernels)  :     7.32 TFLOP/s   = 25.3% of bf16 roof

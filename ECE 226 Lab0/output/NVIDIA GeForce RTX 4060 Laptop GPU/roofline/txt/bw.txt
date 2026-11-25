@@ -1,0 +1,11 @@
+    buffer        ms      GB/s  % of best
+------------------------------------------
+      1MiB     0.028      70.6      10.0%
+      4MiB     0.028     282.6      39.8%
+     16MiB     0.044     709.7     100.0%
+     64MiB     0.683     183.0      25.8%
+    256MiB     2.728     183.3      25.8%
+   1024MiB     9.365     213.6      30.1%
+
+best anywhere in the sweep :     709.7 GB/s  at 16 MiB
+largest buffer measured    :     213.6 GB/s  at 1024 MiB   <-- use THIS in the roofline

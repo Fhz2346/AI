@@ -1,0 +1,12 @@
+torch             : 2.8.0+cu126
+torch.version.hip : None
+torch.version.cuda: 12.6
+backend chosen    : cuda -> cuda
+host              : Windows-10-10.0.26200-SP0 / AMD64
+
+device memory treated as free   : 6.9 GiB
+time budget per timed call      : 150 ms
+precisions worth probing here   : ['fp64', 'fp32', 'bf16', 'fp16']
+fp32 GEMM sizes for this machine: [256, 512, 1024, 2048, 4096]
+bandwidth buffer sizes (MiB)    : [1, 4, 16, 64, 256, 1024]
+

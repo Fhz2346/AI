@@ -1,0 +1,25 @@
+profiler activities: ['CPU', 'CUDA']
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                             aten::convolution_backward         0.65%       3.395ms         1.95%      10.118ms     168.637us      85.716ms        55.92%      88.359ms       1.473ms            60  
+                                          ProfilerStep*         0.00%       0.000us         0.00%       0.000us       0.000us      51.583ms        33.65%      51.583ms      10.317ms             5  
+                                aten::cudnn_convolution         0.40%       2.090ms         0.77%       4.010ms      66.838us      40.680ms        26.54%      40.680ms     678.002us            60  
+_ZN17cutlass__5x_cudnn6KernelI67cutlass_tensorop_s16...         0.00%       0.000us         0.00%       0.000us       0.000us      23.623ms        15.41%      23.623ms       1.575ms            15  
+sm86_xmma_fprop_implicit_gemm_tf32f32_tf32f32_f32_nh...         0.00%       0.000us         0.00%       0.000us       0.000us      23.107ms        15.08%      23.107ms       1.540ms            15  
+_ZN17cutlass__5x_cudnn6KernelI79cutlass_tensorop_s16...         0.00%       0.000us         0.00%       0.000us       0.000us      17.658ms        11.52%      17.658ms     588.598us            30  
+_ZN5cudnn19engines_precompiled16nchwToNhwcKernelIfff...         0.00%       0.000us         0.00%       0.000us       0.000us      13.134ms         8.57%      13.134ms      50.514us           260  
+_ZN17cutlass__5x_cudnn6KernelINS_4conv6kernel23Impli...         0.00%       0.000us         0.00%       0.000us       0.000us       9.784ms         6.38%       9.784ms     391.361us            25  
+sm80_xmma_dgrad_implicit_gemm_tf32f32_tf32f32_f32_nh...         0.00%       0.000us         0.00%       0.000us       0.000us       9.472ms         6.18%       9.472ms       1.894ms             5  
+sm80_xmma_fprop_implicit_gemm_tf32f32_tf32f32_f32_nh...         0.00%       0.000us         0.00%       0.000us       0.000us       8.774ms         5.72%       8.774ms     584.929us            15  
+_ZN17cutlass__5x_cudnn6KernelI67cutlass_tensorop_s16...         0.00%       0.000us         0.00%       0.000us       0.000us       5.411ms         3.53%       5.411ms     541.129us            10  
+                        aten::cudnn_batch_norm_backward         0.20%       1.062ms         0.43%       2.232ms      49.609us       5.161ms         3.37%       5.161ms     114.698us            45  
+_ZN5cudnn21bn_bw_1C11_kernel_newIff6float2Li32ELb1EL...         0.00%       0.000us         0.00%       0.000us       0.000us       4.401ms         2.87%       4.401ms     125.729us            35  
+                                             aten::add_         0.17%     880.500us         0.38%       1.964ms      15.709us       4.020ms         2.62%       4.020ms      32.157us           125  
+                                Optimizer.step#SGD.step         0.00%       0.000us         0.00%       0.000us       0.000us       3.960ms         2.58%       3.960ms     791.906us             5  
+                               aten::threshold_backward         0.05%     260.400us         0.10%     519.100us      20.764us       2.978ms         1.94%       2.978ms     119.129us            25  
+_ZN2at6native29vectorized_elementwise_kernelILi4ENS0...         0.00%       0.000us         0.00%       0.000us       0.000us       2.978ms         1.94%       2.978ms     119.129us            25  
+_ZN2at6native29vectorized_elementwise_kernelILi4ENS0...         0.00%       0.000us         0.00%       0.000us       0.000us       2.857ms         1.86%        2.857ms      71.429us            40  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 519.453ms
+Self CUDA time total: 153.278ms

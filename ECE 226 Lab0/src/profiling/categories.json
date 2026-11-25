@@ -1,0 +1,21 @@
+{
+  "optimizer": ["sgd", "adam", "foreach", "multi_tensor"],
+  "GEMM / conv": [
+    "gemm", "conv", "implicit", "cutlass", "wgrad", "dgrad", "Cijk",
+    "sgemm", "ampere", "gemv", "mfma", "addmm", "::mm", "bmm",
+    "linear", "mkldnn"
+  ],
+  "elementwise / norm": [
+    "elementwise", "batch_norm", "bn_", "relu", "add", "mul",
+    "vectorized", "unrolled_elementwise", "native_layer_norm",
+    "threshold", "clamp", "fill", "zero_"
+  ],
+  "reduction": [
+    "reduce", "sum", "softmax", "nll", "cross_entropy",
+    "max_pool", "adaptive_avg", "mean"
+  ],
+  "data movement": [
+    "copy", "memcpy", "cat", "contiguous", "permute", "transpose",
+    "to_", "item", "nchwtonhwc", "nhwctonchw"
+  ]
+}

@@ -1,0 +1,10 @@
+category                       ms    share   (device self time)
+------------------------------------------------------
+GEMM / conv                105.74    72.3%
+elementwise / norm          16.07    11.0%
+data movement               15.47    10.6%
+reduction                    4.65     3.2%
+optimizer                    3.65     2.5%
+other                        0.71     0.5%
+------------------------------------------------------
+TOTAL                      146.28

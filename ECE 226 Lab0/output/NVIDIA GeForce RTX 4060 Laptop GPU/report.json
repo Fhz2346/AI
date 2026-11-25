@@ -1,0 +1,16 @@
+{
+  "backend": "cuda",
+  "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "arch": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "cu_or_sm_count": 24,
+  "wave_or_warp": 32,
+  "total_mem_GiB": 8.0,
+  "vendor_runtime": "CUDA 12.6",
+  "n_devices": 1,
+  "L2_cache_size": 33554432,
+  "max_threads_per_multi_processor": 1536,
+  "regs_per_multiprocessor": 65536,
+  "shared_memory_per_block": 49152,
+  "CLOCK_GHZ": 3.105,
+  "DTYPES": ["fp64", "fp32", "bf16", "fp16"]
+}

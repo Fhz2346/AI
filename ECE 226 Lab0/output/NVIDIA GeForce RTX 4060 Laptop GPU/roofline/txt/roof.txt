@@ -1,0 +1,20 @@
+dtype       N        ms   +/- ms    TFLOP/s   implied FLOP/CU/clk
+------------------------------------------------------------------
+fp64     2048    83.371    1.289     0.2061                     3
+fp32     2048     1.861    0.249      9.233                   124
+bf16     2048     0.595    0.139      28.88                   387
+fp16     2048     0.610    0.039      28.15                   378
+
+compute roof : 28.88 TFLOP/s at bf16 (N=2048)
+
+Explaination:
+peak FLOP/s = CUs x clock x FLOP per CU per clock
+
+You cannot look up the right-hand side for an arbitrary laptop, and a datasheet peak is
+not a number you measured anyway. So run the formula the other way round.
+
+The FP16 and BF16 ceilings are both about 3.5× the FP32 ceiling, and they match each other. 
+A ratio near 2× would mean the same FP32 ALUs were simply operating on narrower values. 
+A ratio of 3.5× means this GPU has dedicated tensor cores that retire more 16-bit FMAs per clock than the FP32 pipes. 
+FP16 and BF16 reaching the same ceiling means they share that 16-bit matrix datapath.
+
